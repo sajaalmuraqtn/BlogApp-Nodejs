@@ -1,14 +1,14 @@
-const { Sequelize } = require('sequelize');
+import { Sequelize } from "sequelize";
 
 // create the connection to database
 
-  const sequelize = new Sequelize('node4', 'root', '', {
+  const sequelize = new Sequelize('blog app', 'root', '', {
     host: 'localhost',
     dialect: 'mysql'
   });
 
-  const ConnectDb=()=>{
-    return sequelize.sync().then(result=>{
+  export const ConnectDb= async(req,res)=>{
+    return await sequelize.sync().then(result=>{
         console.log("DB connected");
        // console.log(result);
     }).catch(err=>{
@@ -16,4 +16,3 @@ const { Sequelize } = require('sequelize');
     })
   }
 
-  module.exports=ConnectDb;

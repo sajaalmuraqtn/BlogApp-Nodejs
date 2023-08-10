@@ -1,12 +1,9 @@
-const express = require('express');
-const app = express();
-const userRouter=require('./src/module/user/user.router.js');
-const connectDb=require('./DB/connection.js');
-
+import  express  from "express";
+import  initApp  from "./src/module/app.router.js";
+const app =express();
 app.use(express.json());
-connectDb();
 
-app.use('/users',userRouter);
+initApp(app,express);
 
 app.listen(4000,()=>{
   console.log('server is running');

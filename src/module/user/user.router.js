@@ -1,9 +1,9 @@
-const express=require('express');
-
-const userController=require('./Controller/user.controller.js');
+import express from 'express'
+import * as userController from './Controller/user.controller.js'
 const app=express();
+app.use(express.json());
+
+app.get('/users',userController.getUsers);
 
 
-app.get('/users',userController.userPage);
-
-module.exports=app;
+export default app;
