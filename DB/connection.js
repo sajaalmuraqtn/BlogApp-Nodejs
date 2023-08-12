@@ -2,7 +2,7 @@ import { Sequelize } from "sequelize";
 
 // create the connection to database
 
-  const sequelize = new Sequelize('blog app', 'root', '', {
+ export const sequelize = new Sequelize('blog app', 'root', '', {
     host: 'localhost',
     dialect: 'mysql'
   });

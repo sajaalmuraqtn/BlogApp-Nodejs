@@ -19,12 +19,16 @@ password:{
 confirmEmail:{
     type:DataTypes.BOOLEAN,
     allowNull:false,
-    unique:true
+    defaultValue:false
+    ,unique:false
 },
 age:{
     type:DataTypes.INTEGER,
-
 },
+isAdmin:{
+    type:DataTypes.BOOLEAN,
+    defaultValue:false
+}
 });
 
 export default UserModel;

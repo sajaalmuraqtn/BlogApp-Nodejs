@@ -6,6 +6,7 @@ import * as AuthController from './Controller/Auth.controller.js';
 
 // for router methods
 
-app.get('/getAuth',AuthController.getAuth);
+app.post('/signup',AuthController.signup);
+app.post('/signIn',AuthController.signIn);
 
 export default app;

@@ -7,9 +7,9 @@ const initApp=(app,express)=>{
     
     app.use(express.json());
      ConnectDb();
-app.use('/',AuthRouter);
+app.use('/Auth',AuthRouter);
 app.use('/Blog',BlogRouter);
-app.use('/Users',UserRouter);
+app.use('/User',UserRouter);
 app.use('*',(req,res)=>{
     res.json({'Error':"Page Not Found"});
 })
