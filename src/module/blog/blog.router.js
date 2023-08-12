@@ -4,7 +4,10 @@ import express from 'express'
 const app=express();
 app.use(express.json());
 
-app.get("/blogs",BlogController.getBlog);
+app.post("/createBlog",BlogController.createBlog);
+app.get("/allBlogs",BlogController.getBlogs);
+app.patch("/updateBlog/:blogId",BlogController.updateBlog);
+app.delete("/deleteBlog/:blogId",BlogController.deleteBlog);
 
 
 

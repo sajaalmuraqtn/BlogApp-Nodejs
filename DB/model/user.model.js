@@ -1,5 +1,6 @@
 import { Sequelize, DataTypes } from 'sequelize';
 import {sequelize} from '../connection.js';
+import BlogModel from './blog.model.js';
 
 const UserModel=sequelize.define('User',{
 userName:{
@@ -30,5 +31,14 @@ isAdmin:{
     defaultValue:false
 }
 });
+
+UserModel.hasMany(BlogModel,
+    {
+        onDelete:'CASCADE'
+    }
+    );
+ BlogModel.belongsTo(UserModel);
+
+
 
 export default UserModel;

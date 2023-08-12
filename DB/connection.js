@@ -8,7 +8,7 @@ import { Sequelize } from "sequelize";
   });
 
   export const ConnectDb= async(req,res)=>{
-    return await sequelize.sync().then(result=>{
+    return await sequelize.sync({alter:false}).then(result=>{
         console.log("DB connected");
        // console.log(result);
     }).catch(err=>{
