@@ -10,4 +10,33 @@ export const getUsers=async(req,res)=>{
   
 }
 
+//update user
+
+export const updateUser= async(req,res)=>{
+   let {id}=req.params;
+   try {
+    const userCount = await UserModel.update(req.body,{where:{id:id}});
+    if (userCount ==0) {
+        return res.json({message:'Error',error:"user not found"});
+    }
+    return res.json({message:"Updated"});
+   } catch (error) {
+    return res.json({message:'Catch Error',error});
+   }
+}
+
+// delete user
+export const deleteUser=async(req,res)=>{
+    try {
+        let {id}=req.params;
+        const userCount = await UserModel.destroy({where:{id:id}});
+        if (userCount ==0) {
+            return res.json({message:'Error',error:"user not found"});
+        }
+        return res.json({message:"Deleted"});
+
+    } catch (error) {
+        return res.json({message:'Catch Error',error});        
+    }
+}
 
